@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Levels Page</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f1f1f1;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		.level-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-top: 50px;
+		}
+		.level {
+			width: 150px;
+			height: 150px;
+			margin: 20px;
+			padding: 20px;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			text-align: center;
+			cursor: pointer;
+			transition: box-shadow 0.3s ease-in-out;
+		}
+		.level:hover {
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+		}
+		.level h2 {
+			margin-top: 0;
+			font-size: 24px;
+			font-weight: bold;
+			color: #333;
+		}
+		.level p {
+			margin-top: 10px;
+			font-size: 16px;
+			color: #666;
+		}
+		h1 span {
+            color: red;
+          }  
+		#red span {
+            color: red;
+        }
+		nav {
+			background-color: #333;
+			height: 50px;
+		}
+		
+		nav ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			height: 100%;
+		}
+		
+		nav li {
+			margin: 0 10px;
+		}
+		
+		nav a {
+			color: #fff;
+			text-decoration: none;
+			font-weight: bold;
+			padding: 5px;
+		}
+		
+		nav a:hover {
+			background-color: #fff;
+			color: #333;
+		}
+					  
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="{% url 'home' %}">Home</a></li>
+			<li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+			<a href="{% url 'about' %}">About</a>
+    		<a href="{% url 'contact' %}">Contact</a>
+    		<a href="{% url 'profile' %}">Profile</a> 
+		</ul>
+	</nav>
+	<h1>Welcome, {{ userName }}. Please choose a level from <span>{{ level }}</span> to continue.</h1>
+	<div class="level-container">
+		<div class="level" onclick="location.href='{% url 'level1' %}'">
+			<h2>Level 1</h2>
+			<p>Easy</p>
+			<p id="red"><span>{{ errer1 }}</span></p>
+		</div>
+		<div class="level" onclick="location.href='{% url 'level2' %}'">
+			<h2>Level 2</h2>
+			<p>Medium</p>
+			<p id="red"><span>{{ errer2 }}</span></p>
+		</div>
+		<div class="level" onclick="location.href='{% url 'level3' %}'">
+			<h2>Level 3</h2>
+			<p>Hard</p>
+			<p id="red"><span>{{ errer3 }}</span></p>
+		</div>
+		<div class="level" onclick="location.href='{% url 'level4' %}'">
+			<h2>Level 4</h2>
+			<p>Medium</p>
+			<p id="red"><span>{{ errer4 }}</span></p>
+		</div>
+		<div class="level" onclick="location.href='{% url 'level5' %}'">
+			<h2>Level 5</h2>
+			<p>Hard</p>
+			<p id="red"><span>{{ errer5 }}</span></p>
+		</div>
+		<div class="level" onclick="location.href='{% url 'level6' %}'">
+			<h2>Level 6</h2>
+			<p>Easy</p>
+			<p id="red"><span>{{ errer6 }}</span></p>
+		</div>
+		<div class="level" onclick="location.href='{% url 'level7' %}'">
+			<h2>Level 7</h2>
+			<p>Medium</p>
+			<p id="red"><span>{{ errer7 }}</span></p>
+		</div>
+		<div class="level" onclick="location.href='{% url 'level8' %}'">
+			<h2>Level 8</h2>
+			<p>Hard</p>
+			<p id="red"><span>{{ errer8 }}</span></p>
+		</div>
+		<div class="level" onclick="location.href='{% url 'level9' %}'">
+			<h2>Level 9</h2>
+			<p>Medium</p>
+			<p id="red"><span>{{ errer9 }}</span></p>
+		</div>
+		<div class="level" onclick="location.href='{% url 'level10' %}'">
+			<h2>Level 10</h2>
+            <p>Hard</p>
+			<p id="red"><span>{{ errer10 }}</span></p>
+        </div>
+    </div>
+</body>
+</html>
+
+            

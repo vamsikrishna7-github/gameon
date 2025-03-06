@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Game</title>
+  <style>
+    /* Reset some default styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    /* Container for the quiz question */
+    .quiz-container {
+      width: 800px;
+      margin: 0 auto;
+      margin-top: 100px;
+      padding: 20px;
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    
+    /* Style for the quiz question ID */
+    .quiz-container .question-id {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    /* Style for the quiz question text */
+    .quiz-container .question-text {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    /* Style for the quiz question video */
+    .quiz-container .question-video {
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Style for the quiz options */
+    .quiz-container .options {
+      margin-top: 20px;
+      display: flex; /* Display options in a row */
+      justify-content: center; /* Center options horizontally */
+    }
+    
+    /* Style for the hint button */
+    .quiz-container #hintBtn {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f8f8f8;
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    /* Hover effect for the hint button */
+    .quiz-container #hintBtn:hover {
+      background-color: #ddd;
+    }
+
+    /* Style for the quiz option labels */
+    .quiz-container .options label {
+      display: block;
+      margin-right: 10px; /* Add spacing between options */
+      font-size: 18px;
+    }
+    
+    /* Style for the quiz option radio buttons */
+    .quiz-container .options input[type="radio"] {
+      margin-right: 5px; /* Add spacing between radio buttons */
+    }
+    
+    /* Style for the Next button */
+    .quiz-container #nextBtn {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    /* Hover effect for the Next button */
+    .quiz-container #nextBtn:hover {
+      background-color: #0056b3;
+    }
+    form {
+      display: contents;
+    }       
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="question-id">Level 3</div>
+    <div class="question-text">Which way tommy choose?</div>
+    <video class="question-video" src="{% static 'videos/video Q1.mp4' %}" controls></video>
+    <button id="hintBtn"></button>
+    <div class="options">
+      <form method="post">
+        {% csrf_token %} 
+        <label><input type="radio" name="option" value="Door1">Door #1</label></br>
+        <label><input type="radio" name="option" value="Door3">Door #3</label></br>
+        <label><input type="radio" name="option" value="Door2">Door #2</label></br>
+        <label><input type="radio" name="option" value="None of these">None of these</label></br>
+        <p><span>{{ errer }}</span></p>
+        <button type="submit" id="nextBtn">Next</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

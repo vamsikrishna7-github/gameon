@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaderboard</title>
+  <style>
+    /* Reset some default styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    /* Container for the leaderboard */
+    .leaderboard-container {
+      width: 800px;
+      margin: 0 auto;
+      margin-top: 100px;
+      padding: 20px;
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+    }
+    
+    /* Style for the leaderboard title */
+    .leaderboard-container h1 {
+      margin: 0;
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    /* Style for the leaderboard table */
+    .leaderboard-container table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    /* Style for the leaderboard table heading row */
+    .leaderboard-container th {
+      padding: 10px;
+      background-color: #ddd;
+      text-align: left;
+    }
+    
+    /* Style for the leaderboard table data rows */
+    .leaderboard-container td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    
+    /* Style for the rank column */
+    .leaderboard-container .rank {
+      width: 50px;
+      text-align: center;
+    }
+    
+    /* Style for the cup column */
+    .leaderboard-container .cup {
+      width: 50px;
+      text-align: center;
+    }
+    
+    /* Style for the username column */
+    .leaderboard-container .username {
+      width: 200px;
+    }
+    
+    /* Style for the level column */
+    .leaderboard-container .level {
+      width: 100px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="leaderboard-container">
+    <h1>Leaderboard</h1>
+    <table>
+      <tr>
+        <th class="rank">Rank</th>
+        <th class="cup">Cup</th>
+        <th class="username">Username</th>
+        <th class="level">Level</th>
+        <th class="score">Score</th>
+      </tr>
+        {% for u in allusers %}
+        <tr>
+          <td class="rank">{{ forloop.counter }}</td>
+          <td class="cup">
+            {% if forloop.counter == 1 %}
+              🥇
+            {% elif forloop.counter == 2 %}
+              🥈
+          {% elif forloop.counter == 3 %}
+              🥉
+          {% else %}
+              🏆
+          {% endif %}
+          </td>
+          <td class="username">{{ u.userName }}</td>
+          <td class="level">{{ u.level }}</td>
+          <td class="level">{{ u.score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+  </div>
+</body>
+</html>

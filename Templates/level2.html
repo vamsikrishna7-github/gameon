@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid Example</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-gap: 10px;
+            padding: 10px;
+            background-color: #fff;
+            color: #444;
+            width: 30vw;
+            height: 40vh;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            background-color: #eee;
+            padding: 0;
+            text-align: center;
+            border: none;
+        }
+        
+        .grid-item button {
+            background-color: #eee;
+            border: none;
+            padding: 20px;
+            font-size: 24px;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            color: #fc0303;
+          }
+      
+          h1 {
+            font-family: Arial, sans-serif;
+            font-size: 28px;
+            text-align: center;
+            margin-top: 30px;
+          }
+          h1 span {
+            color: red;
+          }          
+          form {
+            display: contents;
+          }          
+          #countdown-timer {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }        
+          
+    </style>
+</head>
+<body>
+    <h1>Tap the number in ascending order. </br> Starting form <span>1</span> to <span>25</span> </h1>
+    <div id="countdown-timer">Time Remaining: 30s</div>
+        <script>
+            var countDownDate = new Date().getTime() + 30000;
+                var x = setInterval(function() {
+                    
+                    var now = new Date().getTime();
+                    var distance = countDownDate - now;
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+
+                    var myButton = document.getElementById("myButton");
+                    myButton.setAttribute("data-value1", seconds);
+                    myButton.setAttribute("value", "{{ number1 }}");
+
+                    
+                    document.getElementById("countdown-timer").innerHTML = "Time Remaining: " + seconds + "s";
+                
+                    if (distance <= 0) {
+                        clearInterval(x);
+                        document.getElementById("countdown-timer").innerHTML = "Time's up!";
+                    }
+                }, 1000);
+                
+        </script>
+        
+    <div class="grid-container">
+        <form method="post" action="">
+            {% csrf_token %} 
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number1 }}">{{ number1 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number2 }}">{{ number2 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number3 }}">{{ number3 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number4 }}">{{ number4 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number5 }}">{{ number5 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number6 }}">{{ number6 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number7 }}">{{ number7 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number8 }}">{{ number8 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number9 }}">{{ number9 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number10 }}">{{ number10 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number11 }}">{{ number11 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number12 }}">{{ number12 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number13 }}">{{ number13 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number14 }}">{{ number14 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number15 }}">{{ number15 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number16 }}">{{ number16 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number17 }}">{{ number17 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number18 }}">{{ number18 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number19 }}">{{ number19 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number20 }}">{{ number20 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number21 }}">{{ number21 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number22 }}">{{ number22 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number23 }}">{{ number23 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number24 }}">{{ number24 }}</button></div>
+            <div class="grid-item"><button id ="myButton" data-value1="30" type="submit" name="number" value="{{ number25 }}">{{ number25 }}</button></div>
+        </form>
+    </div>
+</body>
+</html>
